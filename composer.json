@@ -1,14 +1,13 @@
 {
     "name": "sankaest/yii2-notification",
     "description": "This module for renders a message from session flash (with ajax, pjax support and etc.)",
-    "version": "6.7.2",
+    "version": "1.0.0",
     "type": "yii2-extension",
     "keywords": [
         "yii2", "module", "notification", "flash",
         "noty", "toast", "toastr", "growl", "alert", "notyjs", "notyfy", "pnotyfy", "notific8", "lobibox", "sweetalert"
     ],
     "homepage": "https://github.com/sankaest/yii2-notification",
-    "time": "2016-03-31",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +17,6 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "~2"
     },
