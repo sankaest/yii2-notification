@@ -71,7 +71,7 @@ class Wrapper extends Widget
     {
         parent::init();
 
-        $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
+        $this->url = Yii::$app->getUrlManager()->createUrl(['notification/default/index']);
 
         if (!$this->layerClass) {
             $this->layerClass = self::DEFAULT_LAYER;
@@ -163,29 +163,30 @@ class Wrapper extends Widget
         $config = Json::encode($config);
         $layerClass = Json::encode($this->layerClass);
 
-        $this->view->registerJs("
-            $.ajaxSetup({
-                showNoty: true // default for all ajax calls
-            });
-            $(document).ajaxComplete(function (event, xhr, settings) {
-                if (settings.showNoty && (settings.type=='POST' || settings.container)) {
-                    $.ajax({
-                        url: '$this->url',
-                        method: 'POST',
-                        cache: false,
-                        showNoty: false,
-                        global: false,
-                        data: {
-                            layerClass: '$layerClass',
-                            config: '$config'
-                        },
-                        success: function(data) {
-                           $('#" . $this->layer->getLayerId() . "').html(data);
-                        }
-                    });
-                }
-            });
-        ", View::POS_END);
+//        $this->view->registerJs("
+//            $.ajaxSetup({
+//                showNoty: true // default for all ajax calls
+//            });
+//
+//            $(document).ajaxComplete(function (event, xhr, settings) {
+//                if (settings.showNoty && (settings.type=='POST' || settings.container)) {
+//                    $.ajax({
+//                        url: '$this->url',
+//                        method: 'POST',
+//                        cache: false,
+//                        showNoty: false,
+//                        global: false,
+//                        data: {
+//                            layerClass: '$layerClass',
+//                            config: '$config'
+//                        },
+//                        success: function(data) {
+//                           $('#" . $this->layer->getLayerId() . "').html(data);
+//                        }
+//                    });
+//                }
+//            });
+//        ", View::POS_END);
     }
 
     /**
